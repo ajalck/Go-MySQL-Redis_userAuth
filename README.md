@@ -6,7 +6,7 @@ Go-MySQL-Redis_userAuth is a project that provides user authentication functiona
 
 To run the project, make sure you have the following software installed on your machine:
 
-- Go (version 1.15 or above)
+- Go (version 1.18 or above)
 - MySQL
 - Redis
 
