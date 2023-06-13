@@ -35,7 +35,6 @@ func (r *userRepo) CreateUser(body domain.User) (domain.UserDetails, error) {
 	if result.Error != nil {
 		return domain.UserDetails{}, result.Error
 	}
-	log.Println("from create user",user)
 	return domain.UserDetails{
 		UserId:   user.ID,
 		UserName: user.UserName,
@@ -69,7 +68,6 @@ func (r *userRepo) UserLogin(body domain.User) (domain.User, error) {
 		return user, err
 	}
 	jsonString := string(jsonBytes)
-	log.Println(jsonString)
 	err = r.rDB.Set(ctx, body.Email, jsonString, 7*24*time.Hour).Err()
 	if err != nil {
 		return user, err

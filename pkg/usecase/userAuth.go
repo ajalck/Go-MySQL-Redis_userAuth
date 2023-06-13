@@ -37,10 +37,8 @@ func (u *userUseCase) UserLogin(body domain.User) (domain.UserDetails, error) {
 	if err != nil {
 		return domain.UserDetails{}, err
 	}
-	fmt.Println(body.Password)
 	bytes := fmt.Sprintf("%x", md5.Sum([]byte(body.Password)))
 	reqPassword := string(bytes)
-	fmt.Println(user.Password,"  ")
 	if user.Password != reqPassword {
 		return domain.UserDetails{}, errors.New("invalid username of password")
 	}
